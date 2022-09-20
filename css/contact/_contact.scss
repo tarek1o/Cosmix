@@ -1,0 +1,175 @@
+@use "../colors/root" as *;
+
+.contact {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .second-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+
+            @media ($pc) {
+                & {
+                    flex-wrap:nowrap;
+                }
+            }
+
+            > div {
+                flex-basis: 100%;
+                text-align: center;
+
+                @media ($pc) {
+                    & {
+                        flex-basis: 50%;
+                        text-align: left;
+                    }
+                }
+                
+                h4 {
+                    font-size: 18px;
+                    color: #{$p-color};
+                    margin-bottom: 20px;
+                    span {
+                        color: #{$main-color};
+                    }
+                }
+
+                ul {
+                    li {
+                        display: flex;
+                        justify-content: center;
+                        font-size: 14px;
+                        color: #666;
+
+                        @media ($pc) {
+                            & {
+                                justify-content: flex-start;
+                            }
+                        }
+
+                        &:not(:last-of-type) {
+                            margin-bottom: 35px;
+                        }
+                        h6 {
+                            font-size: 14px;
+                            margin-right: 5px;
+
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+
+                        span, address {
+                            font-weight: 300;
+                        }
+                    }
+                    
+                }
+            }
+
+            form {
+                flex-basis: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                @media ($pc) {
+                    & {
+                        flex-basis: 50%;
+                    }
+                }
+
+                fieldset {
+                    border: none;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    input {
+                        flex-basis: 100%;
+                    }
+
+                    @media ($pc) {
+                        & {
+                            flex-wrap: nowrap;
+
+                            input {
+                                flex-basis: 50%;
+                            }
+                        }
+                    }
+                }
+                input, textarea {
+                    caret-color: #{$main-color};
+                    color: #{$p-color};
+                    padding: 10px;
+                    outline: none;
+                    border: 1.5px solid #ccc;
+                    transition: #{$main-transition};
+                    -webkit-transition: #{$main-transition};
+                    -moz-transition: #{$main-transition};
+                    -ms-transition: #{$main-transition};
+                    -o-transition: #{$main-transition};
+                    border-radius: 6px;
+
+                    &[type = "submit"] {
+                        font-size: 18px;
+                        cursor: pointer;
+                        color: #{$main-color};
+                        background-color: white;
+                        border-width: 2px;
+                        border-color: #{$main-color};
+                        border-radius: 22px;
+                        -webkit-border-radius: 22px;
+                        -moz-border-radius: 22px;
+                        -ms-border-radius: 22px;
+                        -o-border-radius: 22px;
+                        transition: #{$main-transition};
+                        -webkit-transition: #{$main-transition};
+                        -moz-transition: #{$main-transition};
+                        -ms-transition: #{$main-transition};
+                        -o-transition: #{$main-transition};
+
+                        &:hover {
+                            background-color: #{$main-color};
+                            color: white;
+                        }
+                    }
+
+                    &:focus {
+                        outline: 0;
+                        border-color: #{$main-color};
+                    }
+
+                    &::placeholder {
+                        color: #ddd;
+                    }
+                }
+                textarea {
+                    resize: none;
+                }
+            }
+        }
+    }
+}
+
+.looking {
+    background-color: #{$main-color};
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+        font-weight: bolder;
+    }
+}

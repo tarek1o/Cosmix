@@ -1,0 +1,158 @@
+@use "../colors/root" as *;
+@use "../display-sytems/display";
+
+/* Start About */
+.about {
+    overflow: hidden;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            @media ($pc) {
+                & {
+                    flex-wrap: nowrap;
+                }
+            }
+
+            .info {
+                flex-basis: 100%;
+                position: relative;
+                left: -200%;
+                
+                @media ($pc) {
+                    & {
+                        flex-basis: 50%;
+                    }
+                }
+
+                h3 {
+                    color: #333;
+                    font-size: 23px;
+                    margin-bottom: 20px;
+                    text-transform: capitalize;
+                    letter-spacing: 0.5px;
+                    @extend %first-letter;
+                    
+                }
+
+                p {
+                    text-align: justify;
+                    line-height: 23px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: #{$p-color};
+                    letter-spacing: 0.3px;                    
+                    @extend %first-letter;
+                }
+            }
+
+            .photo {
+                position: relative;
+                right: -200%;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    &.animate {
+        .info {
+            animation-name: move-left;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .photo {
+            animation-name: move-right;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+    }
+
+}
+
+.download {
+    background-color: #{$main-color};
+    color: white;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        text-align: center;
+
+        @media ($tab) {
+            & {
+                text-align: left;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+        }
+
+        .text {
+            h4 {
+                font-size: 23px;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        button {
+            outline: none;
+            background-color: transparent;
+            color: white;
+            padding: 8px 10px;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 22px;
+            -webkit-border-radius: 22px;
+            -moz-border-radius: 22px;
+            -ms-border-radius: 22px;
+            -o-border-radius: 22px;
+            transition: #{$main-transition};
+            -webkit-transition: #{$main-transition};
+            -moz-transition: #{$main-transition};
+            -ms-transition: #{$main-transition};
+            -o-transition: #{$main-transition};
+            
+            &:hover {
+                background-color: white;
+                color: #{$main-color};
+            }
+        }
+    }
+}
+
+@keyframes move-left {
+    to {
+        left: 0;
+    }
+}
+
+@keyframes move-right {
+    to {
+        right: 0;
+    }
+}

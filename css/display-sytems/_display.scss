@@ -1,0 +1,75 @@
+@use "../colors/root" as *;
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 70px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.main-header {
+    text-align:  center;
+
+    h2 {
+        width: fit-content;
+        margin: 0 auto 30px;
+        text-transform: uppercase;
+        font-size: 35px;
+        color: #555;
+        position: relative;
+    
+        &::before {
+            content: "";
+            width: 80%;
+            height: 1.5px;
+            background-color: #{$main-color};
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+        }
+                
+        span {
+            color: #{$main-color};
+        }
+    }
+
+    p {
+        margin: 0 auto;
+        width: 100%;
+        line-height: 1.6;
+        color: #{$p-color};
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+
+        &::first-letter {
+            color: #{$main-color};
+        }
+
+        @media ($tab) {
+            & {
+                width: 65%;
+            }
+        }
+    }
+}
+
+.section-padding {
+    padding: #{$section-padding} 0;
+}
+
+%first-letter {
+    &::first-letter {
+        color: #{$main-color};
+    }
+}

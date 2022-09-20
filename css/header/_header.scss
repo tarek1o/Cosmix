@@ -1,0 +1,181 @@
+@use "../colors/root" as *;
+
+.landing {
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+}
+
+/* Start Header */
+header {
+    position: fixed;
+    width: 101%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 5;
+    padding: 10px 0;
+    transition: #{$main-transition};
+    -webkit-transition: #{$main-transition};
+    -moz-transition: #{$main-transition};
+    -ms-transition: #{$main-transition};
+    -o-transition: #{$main-transition};
+
+    &.background {
+        background-color: #{$second-color};
+    }
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            cursor: pointer;
+            a {
+                display: block;
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        i.fa-bars {
+            display: block;
+            flex: 1;
+            color: white;
+            font-size: 26px;
+            padding: 5px 8px;
+            cursor: pointer;
+            border: 1px solid white;
+            border-radius: #{$element-radius};
+            @media(#{$tab}){
+                & {
+                    display: none;
+                }
+            }
+
+            &.active {
+                background-color: #{$main-color};
+                border: none;
+            }
+        }
+
+        nav {
+            color: white;
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                right: 0;
+                width: 0%;
+                height: 100vh;
+                background-color: #{$second-color};
+                top: 0;
+                transition: #{$main-transition};
+                -moz-transition: #{$main-transition};
+                -ms-transition: #{$main-transition};
+                -o-transition: #{$main-transition};
+                -webkit-transition: #{$main-transition};
+                
+                &.active {
+                    width: 50%;
+                }
+
+                @media ($tab) {
+                    & {
+                        position: relative;
+                        width: fit-content;
+                        height: fit-content;
+                        background: inherit;
+                    }
+                }
+
+                .fa-xmark {
+                    color: #{$main-color};
+                    width: fit-content;
+                    display: block;
+                    font-size: 25px;
+                    margin: 15px;
+                    cursor: pointer;
+
+                    @media ($tab) {
+                        display: none;
+                    }
+                }
+
+                ul {
+                    margin: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+
+                    @media (#{$tab}) {
+                        & {
+                            flex-direction: row;
+                            gap: 20px;
+                        }
+                    }
+
+                    @media (#{$pc}) {
+                        & {
+                            gap: 30px;
+                        }
+                    }
+
+                    li {
+                        width: fit-content;
+                        letter-spacing: -0.5px;
+
+                        a {
+                            display: block;
+                            transition: #{$main-transition};
+                            -webkit-transition: #{$main-transition};
+                            -moz-transition: #{$main-transition};
+                            -ms-transition: #{$main-transition};
+                            -o-transition: #{$main-transition};
+
+                        &:hover {
+                            color: #{$main-color};
+                            transform: translateX(5px);
+                            -webkit-transform: translateX(5px);
+                            -moz-transform: translateX(5px);
+                            -ms-transform: translateX(5px);
+                            -o-transform: translateX(5px);
+                        }
+
+                        @media ($tab) {
+                            &:hover {
+                                color: #{$main-color};
+                                transform: translateY(-2px);
+                                -webkit-transform: translateY(-2px);
+                                -moz-transform: translateY(-2px);
+                                -ms-transform: translateY(-2px);
+                                -o-transform: translateY(-2px);
+                            }               
+                        }
+                        
+                        &.active {
+                            width: fit-content;
+                            color: #{$main-color};
+                            position: relative;
+                            
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                width: 100%;
+                                bottom: -5px;
+                                border-bottom: 2px solid #{$main-color};
+                            }
+                        }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
